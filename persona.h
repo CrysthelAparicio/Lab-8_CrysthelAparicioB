@@ -37,8 +37,8 @@ class persona{
         void setFertil(bool);
         void toString();
 
-        void operator *(persona&);
-        //void operator *()
+        //double operator *(persona&);
+        //double operator *(persona&);
 };
 
 #endif

@@ -13,6 +13,7 @@ persona::persona(string pNombre, string pGenero, string pColorCabello, string pC
     colorOjos = pColorOjos;
     colorPiel = pColorPiel;
     fertil = pFertil;
+    cout<<"este es"<<fertil<<endl;
 }
 
 
@@ -68,3 +69,4 @@ void persona::toString(){
     cout<<"Nombre->"<<nombre<<" ,Genero->"<<genero<< " ,Color Cabello->"<<colorCabello;
     cout <<" ,Color piel->"<<colorPiel<< " ,Color Ojos->"<<colorOjos<< " ,Fertil->"<<fertil<<endl;
 }
+

@@ -85,7 +85,7 @@ void agregarPersonas()
     cout << "Ingrese si es fertil o no \n1.Si\n2.No: " << endl;
     cin >> opcion;
 
-    if (opcion == '1')
+    if (opcion == 1)
     {
         fertil = true;
     }
@@ -138,105 +138,120 @@ void eliminarPersonas()
     }
 }
 
-void simulacionD(){
-        if(Vpersona.size()!=0){
-            int experimentante=1,experimentante2=1;
-            int opcion;
-            int contador=0;
-            int contador2=0;
-            string gsexo;
-            persona* P1;
-            persona* P2;
-            while(experimentante<=1){
-            cout<<"Es momento de escoger a alguien para la simulacion"<<endl;
-            cout<<"Primera Persona :"<<endl;
-            for(int i=0;i<Vpersona.size();i++){
-                    cout<<contador<<". ";
-                    Vpersona[i]->toString();
-                    contador++;
+void simulacionD()
+{
+    cout<<"Adios"<<endl;
+    if (Vpersona.size() != 0)
+    {
+        int experimentante = 1, experimentante2 = 1;
+        int opcion;
+        int contador = 0;
+        int contador2 = 0;
+        string gsexo;
+        persona *P1;
+        persona *P2;
+        while (experimentante <= 1)
+        {
+            cout<<"Hola"<<endl;
+            cout << "Es momento de escoger a alguien para la simulacion" << endl;
+            cout << "Primera Persona :" << endl;
+            for (int i = 0; i < Vpersona.size(); i++)
+            {
+                cout << i << ". ";
+                Vpersona[i]->toString();
+            }
+            cin >> opcion;
+            if (opcion < 0 || opcion >= Vpersona.size())
+            {
+                cout << "Mal! No valido!" << endl;
+                cin >> opcion;
+            }
+            else
+            {
+                if (Vpersona[opcion]->getFertil())
+                {
+                    string nombre, genero, cabello, ojos, piel;
+                    bool fert;
+                    nombre = Vpersona[opcion]->getNombre();
+                    genero = Vpersona[opcion]->getGenero();
+                    cabello = Vpersona[opcion]->getColorCabello();
+                    ojos = Vpersona[opcion]->getColorOjos();
+                    piel = Vpersona[opcion]->getColorPiel();
+                    fert = Vpersona[opcion]->getFertil();
+                    P1 = new persona(nombre, genero, cabello, ojos, piel, fert);
+                    gsexo = Vpersona[opcion]->getGenero();
+                    cout << "Experimentante Agregado" << endl;
+                    experimentante++;
                 }
-                cin>>opcion;
-                if(opcion<0 || opcion>=Vpersona.size()){
-                cout<<"Mal! No valido!"<<endl;
-                cin>>opcion;
-                }else{
-                    if(Vpersona[opcion]->getFertil()){
-                            string nombre,genero,cabello,ojos,piel;
-                            bool fert;
-                            nombre=Vpersona[opcion]->getNombre();
-                            genero=Vpersona[opcion]->getGenero();
-                            cabello=Vpersona[opcion]->getColorCabello();
-                            ojos=Vpersona[opcion]->getColorOjos();
-                            piel=Vpersona[opcion]->getColorPiel();
-                            fert=Vpersona[opcion]->getFertil();
-                            P1=new persona(nombre,genero,cabello,ojos,piel,fert);
-                            gsexo=Vpersona[opcion]->getGenero();
-                            cout<<"Experimentante Agregado"<<endl;
-                            experimentante++;
-                        }else{
-                            cout<<"Necesita personas fertiles";
-                        }
+                else
+                {
+                    cout << "Necesita personas fertiles";
                 }
             }
-            while(experimentante2<=1){
-                cout<<"Es momento de escoger a otra persona para la simulacion"<<endl;
-                    cout<<"Segunda Persona"<<endl;
-                for(int i=0;i<Vpersona.size();i++){
-                    cout<<contador2<<". ";
-                    Vpersona[i]->toString();
-                    contador2++;
-                }
-                cin>>opcion;
-                if(opcion<0 || opcion>=Vpersona.size()){
-                cout<<"Mal! No valido"<<endl;
-                cin>>opcion;
-                }else{
-                        if(Vpersona[opcion]->getFertil()){
-                            if(Vpersona[opcion]->getGenero()!=gsexo){
-                                string nombre,genero,cabello,ojos,piel;
-                                bool fert;
-                                nombre=Vpersona[opcion]->getNombre();
-                                genero=Vpersona[opcion]->getGenero();
-                                cabello=Vpersona[opcion]->getColorCabello();
-                                ojos=Vpersona[opcion]->getColorOjos();
-                                piel=Vpersona[opcion]->getColorPiel();
-                                fert=Vpersona[opcion]->getFertil();
-
-                            P2=new persona(nombre,genero,cabello,ojos,piel,fert);
-                                experimentante2++;
-                                cout<<"Experimentante Agregado"<<endl;
-
-                            }else{
-                                cout<<"Necesita personas del mismo sexo"<<endl;
-                            }
-                        }else{
-                            cout<<"Necesita personas fertiles"<<endl;
-                        }
-                        
+        }
+        while (experimentante2 <= 1)
+        {
+            cout << "Es momento de escoger a otra persona para la simulacion" << endl;
+            cout << "Segunda Persona" << endl;
+            for (int i = 0; i < Vpersona.size(); i++)
+            {
+                cout << i << ". ";
+                Vpersona[i]->toString();
+            }
+            cin >> opcion;
+            if (opcion < 0 || opcion >= Vpersona.size())
+            {
+                cout << "Mal! No valido" << endl;
+                cin >> opcion;
+            }
+            else
+            {
+                if (Vpersona[opcion]->getFertil())
+                {
+                    if (Vpersona[opcion]->getGenero() != gsexo)
+                    {
+                        string nombre, genero, cabello, ojos, piel;
+                        bool fert;
+                        nombre = Vpersona[opcion]->getNombre();
+                        genero = Vpersona[opcion]->getGenero();
+                        cabello = Vpersona[opcion]->getColorCabello();
+                        ojos = Vpersona[opcion]->getColorOjos();
+                        piel = Vpersona[opcion]->getColorPiel();
+                        fert = Vpersona[opcion]->getFertil();
+                        P2 = new persona(nombre, genero, cabello, ojos, piel, fert);
+                        experimentante2++;
+                        cout << "Experimentante Agregado" << endl;
                     }
-                    
+                    else
+                    {
+                        cout << "Necesita personas del mismo sexo" << endl;
+                    }
                 }
-    //OPERADORES
-        char tipo_sexo;
-        cout<<"Escoga la manera de tener relaciones"<<endl;
-        cout<<"1. Con proteccion\n2. Sin Proteccion"<<endl;
-        cin>>tipo_sexo;
-        while(tipo_sexo!=1 || tipo_sexo!=2){
-            cout<<"MAl, ingrese nuevamente"<<endl;
-            cin>>tipo_sexo;
+                else
+                {
+                    cout << "Necesita personas fertiles" << endl;
+                }
+            }
         }
-        switch(tipo_sexo){
-            case'1':
+        char manera;
+        cout << "Escoga la manera de tener relaciones" << endl;
+        cout << "1. Con proteccion\n2. Sin Proteccion" << endl;
+        cin >> manera;
+       
+        switch (manera)
+        {
+        case '1':
 
-                break;
-                
-            case '2':
+            break;
 
-                break;
+        case '2':
+
+            break;
         }
-        }else{
-            cout<<"Emmmm, necesita agregar personas...\n"<<endl;
-        }
-
-
+    }
+    else
+    {
+        cout << "Emmmm, necesita agregar personas...\n"
+             << endl;
+    }
 }
