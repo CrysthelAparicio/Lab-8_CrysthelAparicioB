@@ -148,8 +148,9 @@ void simulacionD()
         int contador = 0;
         int contador2 = 0;
         string gsexo;
-        persona *P1;
-        persona *P2;
+        persona *per1;
+        persona *per2;
+        persona *per3;
         while (experimentante <= 1)
         {
             cout<<"Hola"<<endl;
@@ -178,7 +179,7 @@ void simulacionD()
                     ojos = Vpersona[opcion]->getColorOjos();
                     piel = Vpersona[opcion]->getColorPiel();
                     fert = Vpersona[opcion]->getFertil();
-                    P1 = new persona(nombre, genero, cabello, ojos, piel, fert);
+                    per1 = new persona(nombre, genero, cabello, ojos, piel, fert);
                     gsexo = Vpersona[opcion]->getGenero();
                     cout << "Experimentante Agregado" << endl;
                     experimentante++;
@@ -218,7 +219,7 @@ void simulacionD()
                         ojos = Vpersona[opcion]->getColorOjos();
                         piel = Vpersona[opcion]->getColorPiel();
                         fert = Vpersona[opcion]->getFertil();
-                        P2 = new persona(nombre, genero, cabello, ojos, piel, fert);
+                        per2 = new persona(nombre, genero, cabello, ojos, piel, fert);
                         experimentante2++;
                         cout << "Experimentante Agregado" << endl;
                     }
@@ -241,11 +242,17 @@ void simulacionD()
         switch (manera)
         {
         case '1':
-
+            per3=*per1+*per2;
+            if(per3!=NULL){
+                Vpersona.push_back(per3);
+            }
             break;
 
         case '2':
-
+            per3=*per1+*per2;
+            if(per3!=NULL){
+                Vpersona.push_back(per3);
+            }
             break;
         }
     }
