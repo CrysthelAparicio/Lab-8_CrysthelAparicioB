@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include "persona.h"
@@ -17,6 +16,7 @@ int persona2;
 
 int main()
 {
+    
     bool continuar = true;
     char resp;
     do
@@ -26,6 +26,7 @@ int main()
         cout << "2. Listas las personas que participaron del experimento" << endl;
         cout << "3. Eliminar las personas que particparon del experimento" << endl;
         cout << "4. Simulacion del experimento" << endl;
+        cout << "5. Salir" << endl;
         cout << endl;
         cin >> resp;
 
@@ -47,15 +48,21 @@ int main()
             simulacionD();
             break;
 
+        case '5':
+            continuar=false;
+            cout<<"Saliendo..."<<endl;
+            break;
         default:
             cout << "Opcion Invalida";
         }
-    } while (continuar == true);
+    } while (continuar ==true);
 }
 
 void agregarPersonas()
 {
     string nombre, genero, colorCabello, colorPiel, colorOjos;
+    char opCabello,opOjos,opPiel;
+
     bool fertil;
     int opcion;
     char opc;
@@ -74,14 +81,39 @@ void agregarPersonas()
     {
         genero = "Femenino";
     }
-    cout << "Ingrese el color del Cabello del participante: " << endl;
-    cin >> colorCabello;
-    cout << "Ingrese el color de Piel del participante: " << endl;
-    cin >> colorPiel;
-    cout << "Ingrese el color de Ojos del participante: " << endl;
-    cin >> colorOjos;
-    cout << "Ingrese el color de Piel del particpante: " << endl;
-    cin >> colorPiel;
+
+    cout << "Ingrese el color del Cabello del participante\n1.cafe\n2.negro\n3.rubio: " << endl;
+    cin >> opCabello;
+    if(opCabello=='1'){
+        colorCabello="negro";
+    }else{
+        if(opCabello=='2'){
+        colorCabello="cafe";
+        }else{
+            colorCabello="rubio";
+        } 
+    }
+
+    cout << "Ingrese el color de Piel del participante\n1.blanco\n2.moreno: " << endl;
+    cin >> opPiel;
+    if(opPiel=='1'){
+        colorPiel="blanco";
+    }else{
+        colorPiel="moreno";
+    }
+
+    cout << "Ingrese el color de Ojos del participante\n1.cafe\n2.azul\n3.verde: " << endl;
+    cin >> opOjos;
+   if(opOjos=='1'){
+        colorOjos="cafe";
+    }else{
+        if(opOjos=='2'){
+        colorOjos="azul";
+        }else{
+            colorOjos="verde";
+        } 
+    }
+
     cout << "Ingrese si es fertil o no \n1.Si\n2.No: " << endl;
     cin >> opcion;
 
